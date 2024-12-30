@@ -6,3 +6,4 @@ fi
 git clone https://github.com/surendra1302/hello-world-war.git
 cd hello-world-war
 mvn clean package
+echo $1 $2
