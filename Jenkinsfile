@@ -14,7 +14,7 @@ pipeline {
         stage('build') {
             steps {
                sh 'cd hello-world-war'
-                sh 'maven clean $cmd'
+                sh 'mvn clean $cmd'
             }
         }
     }
