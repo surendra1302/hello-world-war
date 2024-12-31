@@ -3,7 +3,7 @@ pipeline {
         string(name: 'cmd', defaultValue: 'package', description: 'building')
         choice(name: 'ch', choices: ['package', 'install', 'deploy'], description: 'Pick something')    
     }
-    agent any
+    agent { label 'maven' }
     stages {
         stage('checkout') {
             steps {
