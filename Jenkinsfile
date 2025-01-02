@@ -24,19 +24,19 @@ pipeline {
     
 post {
         success {
-              emailext(
-                  to:'surendrakorivi96@gmail.com',
-                subject:"Build Successful",
-                body:"The build was successful".
-                  )
-                  }
-        failure {
-              emailext(
-                  to:'surendrakorivi96@gmail.com',
-                subject:"Build Failed",
-                body:"The build has Failed".
-                  )
-                  }
+            emailext(
+                subject: "Build success",
+                body: "Build is successful",
+                to: 'surendrakorivi96@gmail.com'
+            )
+        }
+    success {
+            emailext(
+                subject: "Build failed",
+                body: "Build was failed ",
+                to: 'surendrakorivi96@gmail.com'
+            )
+        }
     }
     
 }
