@@ -4,13 +4,13 @@ pipeline {
 
         choice(name: 'Choice', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
-    agent any
+    agent {label 'slave'}
        stages 
     {
         stage('checkout') {        
                 steps {
                     sh 'rm -rf hello-world-war'
-                    sh 'git clone https://github.com/sharanya123-ty/hello-world-war/'
+                    sh 'git clone https://github.com/AkshathaMR/hello-world-war/'
             }
         }
          stage('build') { 
