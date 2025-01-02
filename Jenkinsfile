@@ -19,7 +19,8 @@ pipeline {
             }
         }
     }
-post {
+    
+/*post {
         success {
               emailext(
                   to:'surendrakorivi96@gmail.com',
@@ -35,4 +36,5 @@ post {
                   )
                   }
     }
+    */
 }
