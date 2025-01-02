@@ -21,14 +21,18 @@ pipeline {
     }
 post {
         success {
-              mail to:'surendrakorivi96@gmail.com',
+              mail(
+                  to:'surendrakorivi96@gmail.com',
                 subject:"Build Successful",
                 body:"The build was successful".
-                
+                  )
+                  }
         failure {
-              mail to:'surendrakorivi96@gmail.com',
+              mail(
+                  to:'surendrakorivi96@gmail.com',
                 subject:"Build Failed",
                 body:"The build has Failed".
-                
+                  )
+                  }
     }
 }
