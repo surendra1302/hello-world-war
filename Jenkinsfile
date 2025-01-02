@@ -21,7 +21,6 @@ pipeline {
          stage('run tomcat') {
             steps {
                 agent { label 'master' }
-                sh 'sudo chmod a+x /home/ubuntu/apache-tomcat-9.0.98/bin/startup.sh'
                sh './home/ubuntu/apache-tomcat-9.0.98/bin/startup.sh'
                 }
         }
