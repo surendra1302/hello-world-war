@@ -21,7 +21,7 @@ pipeline {
          stage('run tomcat') {
             steps {
                 agent { label 'master' }
-               sh 'bash /home/ubuntu/apache-tomcat-9.0.98/bin/startup.sh'
+               sh './home/ubuntu/apache-tomcat-9.0.98/bin/startup.sh'
                 }
         }
     }
