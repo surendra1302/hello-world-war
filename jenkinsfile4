@@ -21,6 +21,10 @@ pipeline {
         '''
     }
 }
-
+  stage('email') {
+          steps {
+    mail bcc: '', body: 'Hello World WAR Deployed Successfully', cc: '', from: 'Jenkins', replyTo: '', subject: 'Jenkins Notification', to: 'hhgsharish@gmail.com'
+    }
+}
     }
 }
