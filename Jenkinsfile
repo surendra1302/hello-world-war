@@ -21,11 +21,10 @@ pipeline {
         stage('running tomcat') {
             steps {
                 sh '''
-            ssh ubuntu@13.235.77.147 << EOF
+            ssh -o StrictHostKeyChecking=no ubuntu@13.235.77.147
             cd /home/ubuntu/apache-tomcat-9.0.98/bin
             ./startup.sh
-            EOF
-        '''
+            '''
             }
         }
     }
