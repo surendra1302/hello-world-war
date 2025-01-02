@@ -22,8 +22,9 @@ pipeline {
             }
         }
         stage('running tomcat') {
-            agent { label 'Built-In Node' }
+            agent { label 'maven' }
             steps {
+                sh 'ssh ubuntu@13.235.77.147 -y'
                sh 'cd /home/ubuntu/apache-tomcat-9.0.98/bin/'
                 sh './startup.sh'
             }
