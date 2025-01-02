@@ -21,8 +21,7 @@ pipeline {
         */
     
     }
-    
-post {
+    post {
         success {
             emailext(
                 subject: "Build success",
@@ -30,7 +29,7 @@ post {
                 to: 'surendrakorivi96@gmail.com'
             )
         }
-    success {
+    failure {
             emailext(
                 subject: "Build failed",
                 body: "Build was failed ",
