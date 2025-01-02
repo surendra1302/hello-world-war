@@ -29,6 +29,6 @@ post {
               mail to:'surendrakorivi96@gmail.com',
                 subject:"Build Failed",
                 body:"The build has Failed".
-                }
+                
     }
 }
