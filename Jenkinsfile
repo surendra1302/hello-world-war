@@ -15,13 +15,13 @@ pipeline {
         }
          stage('deploy') {
             steps {
-                sh 'scp -o StrictHostKeyChecking=no /home/slave1/workspace/maven_job/target/hello-world-war-1.0.0.war ubuntu@13.235.77.147:/home/ubuntu/apache-tomcat-9.0.98/webapps/'
+                sh 'scp -o StrictHostKeyChecking=no /home/slave1/workspace/maven_job/target/hello-world-war-1.0.0.war ubuntu@43.204.150.151:/home/ubuntu/apache-tomcat-9.0.98/webapps/'
             }
         }
         stage('running tomcat') {
             steps {
                 sh '''
-            ssh -o StrictHostKeyChecking=no ubuntu@13.235.77.147
+            ssh -o StrictHostKeyChecking=no ubuntu@43.204.150.151
             cd /home/ubuntu/apache-tomcat-9.0.98/bin
             ./startup.sh
             '''
