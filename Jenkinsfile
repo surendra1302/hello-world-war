@@ -19,7 +19,7 @@ pipeline {
             }
         }
         stage('running tomcat') {
-            agent { label 'master' }
+            agent { label 'Built-In Node' }
             steps {
                sh 'cd /home/ubuntu/apache-tomcat-9.0.98/bin/'
                 sh './startup.sh'
