@@ -18,6 +18,12 @@ pipeline {
                 sh 'scp -r /home/slave1/workspace/maven_job/target/hello-world-war-1.0.0.war ubuntu@13.233.77.156:/home/ubuntu/apache-tomcat-9.0.98/webapps/'
             }
         }
+         stage('run tomcat') {
+            steps {
+                agent { label 'master' }
+               sh 'bash /home/ubuntu/apache-tomcat-9.0.98/bin/startup.sh'
+                }
+        }
     }
     
 /*post {
