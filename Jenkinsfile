@@ -1,22 +1,14 @@
 pipeline {
-    parameters {
-        string(name: 'cmd', defaultValue: 'package', description: 'Who should I say hello to?')
-
-        choice(name: 'ch', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-    }
-    agent any
-       stages 
-    {
-        stage('checkout') {        
-                        steps {
-                            sh 'rm -rf hello-world-war'
-                sh 'git clone https://github.com/AkshathaMR/hello-world-war/'
+    agent { label 'dev' }
+    stages {
+        stage('Example1') {
+          steps {
+                echo 'Hello World'
             }
         }
-         stage('build') { 
-            steps {
-                sh 'cd hello-world-war'
-                sh 'mvn clean $cmd'
+        stage('Example2') {
+          steps {
+                echo 'Hello World'
             }
         }
     }
