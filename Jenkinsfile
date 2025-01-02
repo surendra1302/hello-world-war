@@ -13,13 +13,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-         /*stage('deploy') {
+         stage('deploy') {
             steps {
                 sh 'scp -r /home/slave1/workspace/maven_job/target/hello-world-war-1.0.0.war ubuntu@13.235.70.222:/home/ubuntu/apache-tomcat-9.0.98/webapps/'
             }
         }
-        */
-    
     }
     post {
         success {
@@ -37,5 +35,4 @@ pipeline {
             )
         }
     }
-    
 }
