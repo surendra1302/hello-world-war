@@ -20,9 +20,12 @@ pipeline {
         }
         stage('running tomcat') {
             steps {
-                sh 'ssh ubuntu@13.235.77.147 -y'
-               sh 'cd /home/ubuntu/apache-tomcat-9.0.98/bin'
-                sh './startup.sh'
+                sh '''
+            ssh ubuntu@13.235.77.147 << EOF
+            cd /home/ubuntu/apache-tomcat-9.0.98/bin
+            ./startup.sh
+            EOF
+        '''
             }
         }
     }
