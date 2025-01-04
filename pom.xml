@@ -32,6 +32,7 @@
 			
 		</plugins>
 	</build>
+	<!---add your own sonar account details -->
 	<properties>
 	    <sonar.projectKey>akshatha111_project1</sonar.projectKey>
 	    <sonar.organization>akshatha111</sonar.organization>
