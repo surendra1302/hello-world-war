@@ -33,6 +33,7 @@ pipeline {
                 sh 'mvn clean install' // Adjust for your build tool
             }
         }
+        //add your own sonar account details  
         stage('SonarCloud Analysis') {
             steps {
                 withSonarQubeEnv('SonarCloud') {
