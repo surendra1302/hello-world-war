@@ -35,17 +35,7 @@ pipeline {
             }
         }
 
-        /*stage('Deploy to EC2') {
-            steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'EC2_SSH_PRIVATE_KEY', keyFileVariable: 'SSH_KEY')]) {
-                    sh """
-                    ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${EC2_USER}@${EC2_HOST} << EOF
-                    docker pull ${DOCKER_HUB_REPO}:${IMAGE_TAG}
-                    docker stop tomcat || true
-                    docker rm tomcat || true
-                    docker run -d -p 8082:8080 --name tomcat ${DOCKER_HUB_REPO}:${IMAGE_TAG}
-                    EOF
-                    """*/
+        
         stage('Deploy to Container') {
             steps {
                 script {
