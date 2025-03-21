@@ -39,8 +39,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'EC2_SSH_PRIVATE_KEY', keyFileVariable: 'SSH_KEY')]) {
                     sh """
-                    #ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${EC2_USER}@${EC2_HOST} << EOF
-                    ssh -o StrictHostKeyChecking=no ubuntu@52.90.14.125 << EOF
+                    ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${EC2_USER}@${EC2_HOST} << EOF
                     docker pull ${DOCKER_HUB_REPO}:${IMAGE_TAG}
                     docker stop tomcat || true
                     docker rm tomcat || true
