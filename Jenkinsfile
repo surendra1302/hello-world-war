@@ -3,16 +3,16 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_REPO = "your-dockerhub-username/my-tomcat-app"
-        IMAGE_TAG = "latest"
-        EC2_USER = "ec2-user"   // Use "ubuntu" for Ubuntu AMIs
-        EC2_HOST = "your-ec2-public-ip"
+        DOCKER_HUB_REPO = "surendra1302/tomcat"
+        IMAGE_TAG = "version1.1"
+        EC2_USER = "ubuntu"   
+        EC2_HOST = "35.174.111.25"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-repo/java-tomcat-app.git'
+                git branch: 'main', url: 'https://github.com/surendra1302/hello-world-war.git'
             }
         }
 
@@ -35,23 +35,15 @@ pipeline {
             }
         }
 
-        stage('Pull Image After Push') {
-            steps {
-                sh """
-                docker pull ${DOCKER_HUB_REPO}:${IMAGE_TAG}
-                """
-            }
-        }
-
         stage('Deploy to EC2') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'EC2_SSH_PRIVATE_KEY', keyFileVariable: 'SSH_KEY')]) {
                     sh """
                     ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${EC2_USER}@${EC2_HOST} << EOF
                     docker pull ${DOCKER_HUB_REPO}:${IMAGE_TAG}
-                    docker stop my-tomcat-app || true
-                    docker rm my-tomcat-app || true
-                    docker run -d -p 8080:8080 --name my-tomcat-app ${DOCKER_HUB_REPO}:${IMAGE_TAG}
+                    docker stop tomcat || true
+                    docker rm tomcat || true
+                    docker run -d -p 8082:8080 --name tomcat ${DOCKER_HUB_REPO}:${IMAGE_TAG}
                     EOF
                     """
                 }
