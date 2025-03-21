@@ -5,8 +5,7 @@ pipeline {
     environment {
         DOCKER_HUB_REPO = "surendra1302/tomcat"
         IMAGE_TAG = "version2.1"
-        EC2_USER = "ubuntu"   
-        EC2_HOST = "52.90.14.125"
+       
     }
 
     stages {
