@@ -57,9 +57,6 @@ pipeline {
                     docker run -d -p 8082:8080 --name tomcat $DOCKER_HUB_REPO:$IMAGE_TAG
                     EOF
                     '''
-        }
-    }
-}
 
                 }
             }
